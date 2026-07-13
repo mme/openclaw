@@ -6,6 +6,7 @@ import {
   isKnownFromMeIMessageMessageId,
   rememberIMessageReplyCache,
   resetIMessageShortIdState,
+  resolveIMessageCachedResourceBinding,
   resolveIMessageMessageId,
 } from "./monitor-reply-cache.js";
 import { installIMessageStateRuntimeForTest } from "./test-support/runtime.js";
@@ -385,6 +386,55 @@ describe("hydrate-on-resolve (post-restart short-id persistence)", () => {
 });
 
 describe("current-message chat binding", () => {
+  it("preserves concrete service identity while allowing trusted any aliases", () => {
+    rememberIMessageReplyCache({
+      accountId: "work",
+      messageId: "sms-guid",
+      chatGuid: "SMS;-;+12069106512",
+      chatIdentifier: "+12069106512",
+      timestamp: Date.now(),
+    });
+    rememberIMessageReplyCache({
+      accountId: "work",
+      messageId: "any-guid",
+      chatGuid: "any;-;+12069106512",
+      chatIdentifier: "+12069106512",
+      timestamp: Date.now(),
+    });
+
+    expect(
+      resolveIMessageCachedResourceBinding("sms-guid", {
+        accountId: "work",
+        chatIdentifier: "iMessage;-;+12069106512",
+      }),
+    ).toBe("mismatch");
+    expect(
+      resolveIMessageCachedResourceBinding("any-guid", {
+        accountId: "work",
+        chatIdentifier: "iMessage;-;+12069106512",
+      }),
+    ).toBe("match");
+  });
+
+  it("treats expired entries as unknown before account or chat mismatches", () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date("2026-05-08T00:00:00Z"));
+    rememberIMessageReplyCache({
+      accountId: "work",
+      messageId: "expired-guid",
+      chatId: 42,
+      timestamp: Date.now(),
+    });
+    vi.setSystemTime(new Date("2026-05-08T07:00:00Z"));
+
+    expect(
+      resolveIMessageCachedResourceBinding("expired-guid", {
+        accountId: "other",
+        chatId: 99,
+      }),
+    ).toBe("unknown");
+  });
+
   it.each([{ chatGuid: "any;-;+12069106512" }, { chatIdentifier: "+12069106512" }, { chatId: 42 }])(
     "matches a trusted current message through $chatGuid$chatIdentifier$chatId",
     (chatContext) => {
