@@ -386,15 +386,7 @@ export const KNIP_UNUSED_EXPORT_BASELINE = [
   "src/music-generation/capabilities.ts: resolveMusicGenerationMode",
   "src/music-generation/runtime.ts: MusicGenerationRuntimeDeps",
   "src/node-host/invoke.ts: testing",
-<<<<<<< HEAD
-||||||| parent of ff2a344c080 (fix(linux-canvas): move canvas advertise test out of core, regen docs/protocol/deadcode)
-  "src/pairing/pairing-store.types.ts: ReadChannelAllowFromStoreForAccount",
-  "src/pairing/pairing-store.types.ts: UpsertChannelPairingRequestForAccount",
-=======
   "src/node-host/runtime.ts: NodeHostManifest",
-  "src/pairing/pairing-store.types.ts: ReadChannelAllowFromStoreForAccount",
-  "src/pairing/pairing-store.types.ts: UpsertChannelPairingRequestForAccount",
->>>>>>> ff2a344c080 (fix(linux-canvas): move canvas advertise test out of core, regen docs/protocol/deadcode)
   "src/plugin-state/plugin-state-store.sqlite.ts: probePluginStateStore",
   "src/plugin-state/plugin-state-store.sqlite.ts: seedPluginStateDatabaseEntriesForTests",
   "src/plugin-state/plugin-state-store.sqlite.ts: setMaxPluginStateEntriesPerPluginForTests",
