@@ -114,7 +114,6 @@ export const KNIP_UNUSED_EXPORT_BASELINE = [
   "extensions/qa-lab/src/runtime-parity.ts: __testing",
   "extensions/qa-lab/src/suite-runtime-agent-session.ts: setSessionStoreLockRetryDelaysMsForTests",
   "extensions/qa-lab/src/suite-runtime-flow.ts: createQaSuiteScenarioFlowApi",
-  "extensions/qa-matrix/src/shared/live-transport-cli.ts: createLazyCliRuntimeLoader",
   "extensions/signal/src/reply-authors.ts: clearSignalReplyAuthorsForTest",
   "extensions/synology-chat/src/channel.ts: createSynologyChatPlugin",
   "extensions/synology-chat/src/client.ts: fetchChatUsers (synologyClient)",
