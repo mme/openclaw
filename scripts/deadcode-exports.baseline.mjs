@@ -42,6 +42,11 @@ export const KNIP_UNUSED_EXPORT_BASELINE = [
   "extensions/googlechat/src/monitor.ts: testing",
   "extensions/googlechat/src/targets.ts: resolveGoogleChatSpaceChatType",
   "extensions/imessage/src/monitor-reply-cache.ts: resetIMessageShortIdState",
+  "extensions/linux-canvas/src/commands.ts: LINUX_CANVAS_COMMANDS",
+  "extensions/linux-canvas/src/commands.ts: testing",
+  "extensions/linux-canvas/src/ipc-client.ts: DEFAULT_REQUEST_TIMEOUT_MS",
+  "extensions/linux-canvas/src/ipc-client.ts: LinuxCanvasActionEvent",
+  "extensions/linux-canvas/src/ipc-client.ts: LinuxCanvasIpcRequestHooks",
   "extensions/llama-cpp/src/embedding-provider.ts: createLlamaCppMemoryEmbeddingProvider",
   "extensions/llama-cpp/src/embedding-provider.ts: DEFAULT_LLAMA_CPP_EMBEDDING_MODEL",
   "extensions/llama-cpp/src/embedding-provider.ts: formatLlamaCppSetupError",
@@ -381,6 +386,15 @@ export const KNIP_UNUSED_EXPORT_BASELINE = [
   "src/music-generation/capabilities.ts: resolveMusicGenerationMode",
   "src/music-generation/runtime.ts: MusicGenerationRuntimeDeps",
   "src/node-host/invoke.ts: testing",
+<<<<<<< HEAD
+||||||| parent of ff2a344c080 (fix(linux-canvas): move canvas advertise test out of core, regen docs/protocol/deadcode)
+  "src/pairing/pairing-store.types.ts: ReadChannelAllowFromStoreForAccount",
+  "src/pairing/pairing-store.types.ts: UpsertChannelPairingRequestForAccount",
+=======
+  "src/node-host/runtime.ts: NodeHostManifest",
+  "src/pairing/pairing-store.types.ts: ReadChannelAllowFromStoreForAccount",
+  "src/pairing/pairing-store.types.ts: UpsertChannelPairingRequestForAccount",
+>>>>>>> ff2a344c080 (fix(linux-canvas): move canvas advertise test out of core, regen docs/protocol/deadcode)
   "src/plugin-state/plugin-state-store.sqlite.ts: probePluginStateStore",
   "src/plugin-state/plugin-state-store.sqlite.ts: seedPluginStateDatabaseEntriesForTests",
   "src/plugin-state/plugin-state-store.sqlite.ts: setMaxPluginStateEntriesPerPluginForTests",
